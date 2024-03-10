@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace quan_ly_quan_cafe
 {
-    public partial class Form1 : Form
+    public partial class AccountProfile : Form
     {
-        public Form1()
+        public AccountProfile()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
