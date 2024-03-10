@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +37,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.LsBill = new System.Windows.Forms.ListView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.CbSwicthTable = new System.Windows.Forms.ComboBox();
+            this.BtnSwitchTable = new System.Windows.Forms.Button();
+            this.NmDisCount = new System.Windows.Forms.NumericUpDown();
+            this.BtnDiscount = new System.Windows.Forms.Button();
             this.BtnCheckOut = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.NmFoodCount = new System.Windows.Forms.NumericUpDown();
@@ -43,16 +48,13 @@
             this.CbFood = new System.Windows.Forms.ComboBox();
             this.CbCategory = new System.Windows.Forms.ComboBox();
             this.FlpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnDiscount = new System.Windows.Forms.Button();
-            this.NmDisCount = new System.Windows.Forms.NumericUpDown();
-            this.BtnSwitchTable = new System.Windows.Forms.Button();
-            this.CbSwicthTable = new System.Windows.Forms.ComboBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NmDisCount)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmFoodCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NmDisCount)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,14 +88,14 @@
             // thôngTinCáNhânToolStripMenuItem
             // 
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -125,6 +127,45 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(338, 62);
             this.panel3.TabIndex = 3;
+            // 
+            // CbSwicthTable
+            // 
+            this.CbSwicthTable.FormattingEnabled = true;
+            this.CbSwicthTable.Location = new System.Drawing.Point(3, 34);
+            this.CbSwicthTable.Name = "CbSwicthTable";
+            this.CbSwicthTable.Size = new System.Drawing.Size(158, 24);
+            this.CbSwicthTable.TabIndex = 7;
+            // 
+            // BtnSwitchTable
+            // 
+            this.BtnSwitchTable.Location = new System.Drawing.Point(3, 3);
+            this.BtnSwitchTable.Name = "BtnSwitchTable";
+            this.BtnSwitchTable.Size = new System.Drawing.Size(158, 27);
+            this.BtnSwitchTable.TabIndex = 6;
+            this.BtnSwitchTable.Text = "Chuyển bàn";
+            this.BtnSwitchTable.UseVisualStyleBackColor = true;
+            // 
+            // NmDisCount
+            // 
+            this.NmDisCount.Location = new System.Drawing.Point(167, 35);
+            this.NmDisCount.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.NmDisCount.Name = "NmDisCount";
+            this.NmDisCount.Size = new System.Drawing.Size(81, 22);
+            this.NmDisCount.TabIndex = 5;
+            this.NmDisCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnDiscount
+            // 
+            this.BtnDiscount.Location = new System.Drawing.Point(167, 2);
+            this.BtnDiscount.Name = "BtnDiscount";
+            this.BtnDiscount.Size = new System.Drawing.Size(81, 27);
+            this.BtnDiscount.TabIndex = 4;
+            this.BtnDiscount.Text = "Giảm giá";
+            this.BtnDiscount.UseVisualStyleBackColor = true;
             // 
             // BtnCheckOut
             // 
@@ -195,44 +236,11 @@
             this.FlpTable.Size = new System.Drawing.Size(432, 407);
             this.FlpTable.TabIndex = 5;
             // 
-            // BtnDiscount
+            // contextMenuStrip1
             // 
-            this.BtnDiscount.Location = new System.Drawing.Point(167, 2);
-            this.BtnDiscount.Name = "BtnDiscount";
-            this.BtnDiscount.Size = new System.Drawing.Size(81, 27);
-            this.BtnDiscount.TabIndex = 4;
-            this.BtnDiscount.Text = "Giảm giá";
-            this.BtnDiscount.UseVisualStyleBackColor = true;
-            // 
-            // NmDisCount
-            // 
-            this.NmDisCount.Location = new System.Drawing.Point(167, 35);
-            this.NmDisCount.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.NmDisCount.Name = "NmDisCount";
-            this.NmDisCount.Size = new System.Drawing.Size(81, 22);
-            this.NmDisCount.TabIndex = 5;
-            this.NmDisCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BtnSwitchTable
-            // 
-            this.BtnSwitchTable.Location = new System.Drawing.Point(3, 3);
-            this.BtnSwitchTable.Name = "BtnSwitchTable";
-            this.BtnSwitchTable.Size = new System.Drawing.Size(158, 27);
-            this.BtnSwitchTable.TabIndex = 6;
-            this.BtnSwitchTable.Text = "Chuyển bàn";
-            this.BtnSwitchTable.UseVisualStyleBackColor = true;
-            // 
-            // CbSwicthTable
-            // 
-            this.CbSwicthTable.FormattingEnabled = true;
-            this.CbSwicthTable.Location = new System.Drawing.Point(3, 34);
-            this.CbSwicthTable.Name = "CbSwicthTable";
-            this.CbSwicthTable.Size = new System.Drawing.Size(158, 24);
-            this.CbSwicthTable.TabIndex = 7;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // TableManager
             // 
@@ -252,9 +260,9 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NmDisCount)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NmFoodCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NmDisCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +288,6 @@
         private System.Windows.Forms.Button BtnDiscount;
         private System.Windows.Forms.Button BtnSwitchTable;
         private System.Windows.Forms.ComboBox CbSwicthTable;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
