@@ -43,16 +43,16 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.NmFoodPrice = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LbFoodPrice = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.CbFoodCategory = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LbFoodCategory = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.TxbFoodName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LbFoodName = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.TxbFoodID = new System.Windows.Forms.TextBox();
-            this.LbUserName = new System.Windows.Forms.Label();
+            this.LbFoodID = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.DtgvFood = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -65,11 +65,11 @@
             this.DtgvCategory = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.TxbNameCategory = new System.Windows.Forms.TextBox();
+            this.LbNameCategory = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.TxbCategoryID = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.LbIDCategory = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.BtnShowCategory = new System.Windows.Forms.Button();
             this.BtnEditCategory = new System.Windows.Forms.Button();
@@ -81,13 +81,13 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.CbTableStatus = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.LbStatusTable = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.TxbTableName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LbNameTable = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.TxbTableID = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LbID = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.BtnShowTable = new System.Windows.Forms.Button();
             this.BtnEditTable = new System.Windows.Forms.Button();
@@ -98,13 +98,13 @@
             this.BtnResetPassword = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
             this.CbAccountType = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.LbTypeAccount = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.TxbDisplayName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.LbNameDisplay = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
             this.TxbUserName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.LbUserName = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.DtgvAccount = new System.Windows.Forms.DataGridView();
             this.panel29 = new System.Windows.Forms.Panel();
@@ -112,6 +112,7 @@
             this.BtnEditAccount = new System.Windows.Forms.Button();
             this.BtnDeleteAccount = new System.Windows.Forms.Button();
             this.BtnAddAccount = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.TcAdmin.SuspendLayout();
             this.TpBill.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -151,6 +152,7 @@
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).BeginInit();
             this.panel29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // TcAdmin
@@ -287,7 +289,7 @@
             // panel10
             // 
             this.panel10.Controls.Add(this.NmFoodPrice);
-            this.panel10.Controls.Add(this.label3);
+            this.panel10.Controls.Add(this.LbFoodPrice);
             this.panel10.Location = new System.Drawing.Point(4, 154);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(339, 44);
@@ -305,20 +307,20 @@
             this.NmFoodPrice.Size = new System.Drawing.Size(221, 22);
             this.NmFoodPrice.TabIndex = 2;
             // 
-            // label3
+            // LbFoodPrice
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Giá:";
+            this.LbFoodPrice.AutoSize = true;
+            this.LbFoodPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbFoodPrice.Location = new System.Drawing.Point(3, 12);
+            this.LbFoodPrice.Name = "LbFoodPrice";
+            this.LbFoodPrice.Size = new System.Drawing.Size(49, 24);
+            this.LbFoodPrice.TabIndex = 0;
+            this.LbFoodPrice.Text = "Giá:";
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.CbFoodCategory);
-            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.LbFoodCategory);
             this.panel9.Location = new System.Drawing.Point(4, 104);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(339, 44);
@@ -332,20 +334,20 @@
             this.CbFoodCategory.Size = new System.Drawing.Size(221, 24);
             this.CbFoodCategory.TabIndex = 1;
             // 
-            // label2
+            // LbFoodCategory
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Danh mục:";
+            this.LbFoodCategory.AutoSize = true;
+            this.LbFoodCategory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbFoodCategory.Location = new System.Drawing.Point(3, 10);
+            this.LbFoodCategory.Name = "LbFoodCategory";
+            this.LbFoodCategory.Size = new System.Drawing.Size(112, 24);
+            this.LbFoodCategory.TabIndex = 0;
+            this.LbFoodCategory.Text = "Danh mục:";
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.TxbFoodName);
-            this.panel8.Controls.Add(this.label1);
+            this.panel8.Controls.Add(this.LbFoodName);
             this.panel8.Location = new System.Drawing.Point(4, 54);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(339, 44);
@@ -358,20 +360,21 @@
             this.TxbFoodName.Size = new System.Drawing.Size(221, 22);
             this.TxbFoodName.TabIndex = 1;
             // 
-            // label1
+            // LbFoodName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên món:";
+            this.LbFoodName.AutoSize = true;
+            this.LbFoodName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbFoodName.Location = new System.Drawing.Point(3, 12);
+            this.LbFoodName.Name = "LbFoodName";
+            this.LbFoodName.Size = new System.Drawing.Size(100, 24);
+            this.LbFoodName.TabIndex = 0;
+            this.LbFoodName.Text = "Tên món:";
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.numericUpDown1);
             this.panel7.Controls.Add(this.TxbFoodID);
-            this.panel7.Controls.Add(this.LbUserName);
+            this.panel7.Controls.Add(this.LbFoodID);
             this.panel7.Location = new System.Drawing.Point(3, 4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(340, 44);
@@ -385,16 +388,16 @@
             this.TxbFoodID.Size = new System.Drawing.Size(221, 22);
             this.TxbFoodID.TabIndex = 1;
             // 
-            // LbUserName
+            // LbFoodID
             // 
-            this.LbUserName.AutoSize = true;
-            this.LbUserName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbUserName.Location = new System.Drawing.Point(4, 12);
-            this.LbUserName.Name = "LbUserName";
-            this.LbUserName.Size = new System.Drawing.Size(36, 24);
-            this.LbUserName.TabIndex = 0;
-            this.LbUserName.Text = "ID:";
-            this.LbUserName.Click += new System.EventHandler(this.LbUserName_Click);
+            this.LbFoodID.AutoSize = true;
+            this.LbFoodID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbFoodID.Location = new System.Drawing.Point(4, 12);
+            this.LbFoodID.Name = "LbFoodID";
+            this.LbFoodID.Size = new System.Drawing.Size(36, 24);
+            this.LbFoodID.TabIndex = 0;
+            this.LbFoodID.Text = "ID:";
+            this.LbFoodID.Click += new System.EventHandler(this.LbUserName_Click);
             // 
             // panel4
             // 
@@ -503,34 +506,34 @@
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.textBox2);
-            this.panel15.Controls.Add(this.label6);
+            this.panel15.Controls.Add(this.TxbNameCategory);
+            this.panel15.Controls.Add(this.LbNameCategory);
             this.panel15.Location = new System.Drawing.Point(4, 54);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(339, 44);
             this.panel15.TabIndex = 3;
             // 
-            // textBox2
+            // TxbNameCategory
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 22);
-            this.textBox2.TabIndex = 1;
+            this.TxbNameCategory.Location = new System.Drawing.Point(167, 12);
+            this.TxbNameCategory.Name = "TxbNameCategory";
+            this.TxbNameCategory.Size = new System.Drawing.Size(169, 22);
+            this.TxbNameCategory.TabIndex = 1;
             // 
-            // label6
+            // LbNameCategory
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 12);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 24);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Tên danh mục: ";
+            this.LbNameCategory.AutoSize = true;
+            this.LbNameCategory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbNameCategory.Location = new System.Drawing.Point(3, 12);
+            this.LbNameCategory.Name = "LbNameCategory";
+            this.LbNameCategory.Size = new System.Drawing.Size(158, 24);
+            this.LbNameCategory.TabIndex = 0;
+            this.LbNameCategory.Text = "Tên danh mục: ";
             // 
             // panel16
             // 
             this.panel16.Controls.Add(this.TxbCategoryID);
-            this.panel16.Controls.Add(this.label7);
+            this.panel16.Controls.Add(this.LbIDCategory);
             this.panel16.Location = new System.Drawing.Point(3, 4);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(340, 44);
@@ -544,15 +547,15 @@
             this.TxbCategoryID.Size = new System.Drawing.Size(169, 22);
             this.TxbCategoryID.TabIndex = 1;
             // 
-            // label7
+            // LbIDCategory
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 24);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "ID:";
+            this.LbIDCategory.AutoSize = true;
+            this.LbIDCategory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbIDCategory.Location = new System.Drawing.Point(4, 12);
+            this.LbIDCategory.Name = "LbIDCategory";
+            this.LbIDCategory.Size = new System.Drawing.Size(36, 24);
+            this.LbIDCategory.TabIndex = 0;
+            this.LbIDCategory.Text = "ID:";
             // 
             // panel17
             // 
@@ -645,7 +648,7 @@
             // panel21
             // 
             this.panel21.Controls.Add(this.CbTableStatus);
-            this.panel21.Controls.Add(this.label8);
+            this.panel21.Controls.Add(this.LbStatusTable);
             this.panel21.Location = new System.Drawing.Point(7, 104);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(339, 44);
@@ -660,20 +663,20 @@
             this.CbTableStatus.TabIndex = 2;
             this.CbTableStatus.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label8
+            // LbStatusTable
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 12);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 24);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Trạng thái:";
+            this.LbStatusTable.AutoSize = true;
+            this.LbStatusTable.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbStatusTable.Location = new System.Drawing.Point(3, 12);
+            this.LbStatusTable.Name = "LbStatusTable";
+            this.LbStatusTable.Size = new System.Drawing.Size(113, 24);
+            this.LbStatusTable.TabIndex = 0;
+            this.LbStatusTable.Text = "Trạng thái:";
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.TxbTableName);
-            this.panel14.Controls.Add(this.label4);
+            this.panel14.Controls.Add(this.LbNameTable);
             this.panel14.Location = new System.Drawing.Point(4, 54);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(339, 44);
@@ -686,20 +689,20 @@
             this.TxbTableName.Size = new System.Drawing.Size(169, 22);
             this.TxbTableName.TabIndex = 1;
             // 
-            // label4
+            // LbNameTable
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Tên bàn:";
+            this.LbNameTable.AutoSize = true;
+            this.LbNameTable.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbNameTable.Location = new System.Drawing.Point(3, 12);
+            this.LbNameTable.Name = "LbNameTable";
+            this.LbNameTable.Size = new System.Drawing.Size(94, 24);
+            this.LbNameTable.TabIndex = 0;
+            this.LbNameTable.Text = "Tên bàn:";
             // 
             // panel19
             // 
             this.panel19.Controls.Add(this.TxbTableID);
-            this.panel19.Controls.Add(this.label5);
+            this.panel19.Controls.Add(this.LbID);
             this.panel19.Location = new System.Drawing.Point(3, 4);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(340, 44);
@@ -713,15 +716,15 @@
             this.TxbTableID.Size = new System.Drawing.Size(169, 22);
             this.TxbTableID.TabIndex = 1;
             // 
-            // label5
+            // LbID
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 24);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "ID:";
+            this.LbID.AutoSize = true;
+            this.LbID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbID.Location = new System.Drawing.Point(4, 12);
+            this.LbID.Name = "LbID";
+            this.LbID.Size = new System.Drawing.Size(36, 24);
+            this.LbID.TabIndex = 0;
+            this.LbID.Text = "ID:";
             // 
             // panel20
             // 
@@ -806,7 +809,7 @@
             // panel25
             // 
             this.panel25.Controls.Add(this.CbAccountType);
-            this.panel25.Controls.Add(this.label10);
+            this.panel25.Controls.Add(this.LbTypeAccount);
             this.panel25.Location = new System.Drawing.Point(4, 104);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(339, 44);
@@ -820,20 +823,20 @@
             this.CbAccountType.Size = new System.Drawing.Size(181, 24);
             this.CbAccountType.TabIndex = 1;
             // 
-            // label10
+            // LbTypeAccount
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 10);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(150, 24);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Loại tài khoản:";
+            this.LbTypeAccount.AutoSize = true;
+            this.LbTypeAccount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbTypeAccount.Location = new System.Drawing.Point(3, 10);
+            this.LbTypeAccount.Name = "LbTypeAccount";
+            this.LbTypeAccount.Size = new System.Drawing.Size(150, 24);
+            this.LbTypeAccount.TabIndex = 0;
+            this.LbTypeAccount.Text = "Loại tài khoản:";
             // 
             // panel26
             // 
             this.panel26.Controls.Add(this.TxbDisplayName);
-            this.panel26.Controls.Add(this.label11);
+            this.panel26.Controls.Add(this.LbNameDisplay);
             this.panel26.Location = new System.Drawing.Point(4, 54);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(339, 44);
@@ -846,20 +849,20 @@
             this.TxbDisplayName.Size = new System.Drawing.Size(181, 22);
             this.TxbDisplayName.TabIndex = 1;
             // 
-            // label11
+            // LbNameDisplay
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 12);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(129, 24);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Tên hiển thị:";
+            this.LbNameDisplay.AutoSize = true;
+            this.LbNameDisplay.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbNameDisplay.Location = new System.Drawing.Point(3, 12);
+            this.LbNameDisplay.Name = "LbNameDisplay";
+            this.LbNameDisplay.Size = new System.Drawing.Size(129, 24);
+            this.LbNameDisplay.TabIndex = 0;
+            this.LbNameDisplay.Text = "Tên hiển thị:";
             // 
             // panel27
             // 
             this.panel27.Controls.Add(this.TxbUserName);
-            this.panel27.Controls.Add(this.label12);
+            this.panel27.Controls.Add(this.LbUserName);
             this.panel27.Location = new System.Drawing.Point(3, 4);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(340, 44);
@@ -873,15 +876,15 @@
             this.TxbUserName.Size = new System.Drawing.Size(181, 22);
             this.TxbUserName.TabIndex = 1;
             // 
-            // label12
+            // LbUserName
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(4, 12);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 24);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Tên tài khoản:";
+            this.LbUserName.AutoSize = true;
+            this.LbUserName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbUserName.Location = new System.Drawing.Point(4, 12);
+            this.LbUserName.Name = "LbUserName";
+            this.LbUserName.Size = new System.Drawing.Size(146, 24);
+            this.LbUserName.TabIndex = 0;
+            this.LbUserName.Text = "Tên tài khoản:";
             // 
             // panel28
             // 
@@ -948,6 +951,13 @@
             this.BtnAddAccount.Text = "Thêm";
             this.BtnAddAccount.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(8, 28);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(8, 22);
+            this.numericUpDown1.TabIndex = 2;
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1009,6 +1019,7 @@
             this.panel28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).EndInit();
             this.panel29.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1034,25 +1045,25 @@
         private System.Windows.Forms.Button BtnDeleteFood;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox TxbFoodID;
-        private System.Windows.Forms.Label LbUserName;
+        private System.Windows.Forms.Label LbFoodID;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox TxbFoodName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LbFoodName;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LbFoodCategory;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.NumericUpDown NmFoodPrice;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LbFoodPrice;
         private System.Windows.Forms.ComboBox CbFoodCategory;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.DataGridView DtgvCategory;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TxbNameCategory;
+        private System.Windows.Forms.Label LbNameCategory;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.TextBox TxbCategoryID;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LbIDCategory;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button BtnShowCategory;
         private System.Windows.Forms.Button BtnEditCategory;
@@ -1063,10 +1074,10 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TextBox TxbTableName;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LbNameTable;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.TextBox TxbTableID;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LbID;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button BtnShowTable;
         private System.Windows.Forms.Button BtnEditTable;
@@ -1074,7 +1085,7 @@
         private System.Windows.Forms.Button BtnAddTable;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.ComboBox CbTableStatus;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label LbStatusTable;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Button BtnViewBill;
         private System.Windows.Forms.DateTimePicker dtpkToDate;
@@ -1084,13 +1095,13 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.ComboBox CbAccountType;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LbTypeAccount;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.TextBox TxbDisplayName;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LbNameDisplay;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.TextBox TxbUserName;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label LbUserName;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.DataGridView DtgvAccount;
         private System.Windows.Forms.Panel panel29;
@@ -1099,5 +1110,6 @@
         private System.Windows.Forms.Button BtnDeleteAccount;
         private System.Windows.Forms.Button BtnAddAccount;
         private System.Windows.Forms.Button BtnResetPassword;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
