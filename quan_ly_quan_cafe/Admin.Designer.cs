@@ -112,7 +112,6 @@
             this.BtnEditAccount = new System.Windows.Forms.Button();
             this.BtnDeleteAccount = new System.Windows.Forms.Button();
             this.BtnAddAccount = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.TcAdmin.SuspendLayout();
             this.TpBill.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -152,7 +151,6 @@
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).BeginInit();
             this.panel29.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // TcAdmin
@@ -372,7 +370,6 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.numericUpDown1);
             this.panel7.Controls.Add(this.TxbFoodID);
             this.panel7.Controls.Add(this.LbFoodID);
             this.panel7.Location = new System.Drawing.Point(3, 4);
@@ -951,13 +948,6 @@
             this.BtnAddAccount.Text = "Thêm";
             this.BtnAddAccount.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(8, 28);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(8, 22);
-            this.numericUpDown1.TabIndex = 2;
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1019,7 +1009,6 @@
             this.panel28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).EndInit();
             this.panel29.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1110,6 +1099,5 @@
         private System.Windows.Forms.Button BtnDeleteAccount;
         private System.Windows.Forms.Button BtnAddAccount;
         private System.Windows.Forms.Button BtnResetPassword;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

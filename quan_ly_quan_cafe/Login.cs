@@ -1,4 +1,5 @@
-﻿using System;
+﻿using quan_ly_quan_cafe.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +20,25 @@ namespace quan_ly_quan_cafe
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            TableManager f = new TableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
+            string userName = TxbUserName.Text;
+            string passWord = TxbPassWord.Text;
+            if (fLogin(userName,passWord))
+            {
 
+                TableManager f = new TableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
+            }
+        }
+        bool fLogin(string userName, string passWord)
+        {
+            return AccountDAO.Instance.fLogin(userName, passWord);
+        }
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
