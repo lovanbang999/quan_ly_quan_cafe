@@ -22,9 +22,8 @@ namespace quan_ly_quan_cafe
         {
             string userName = TxbUserName.Text;
             string passWord = TxbPassWord.Text;
-            if (fLogin(userName,passWord))
+            if (flogin(userName, passWord))
             {
-
                 TableManager f = new TableManager();
                 this.Hide();
                 f.ShowDialog();
@@ -35,9 +34,9 @@ namespace quan_ly_quan_cafe
                 MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
             }
         }
-        bool fLogin(string userName, string passWord)
+        bool flogin(string username, string password)
         {
-            return AccountDAO.Instance.fLogin(userName, passWord);
+            return AccountDAO.Instance.fLogin(username, password);
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using quan_ly_quan_cafe.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,15 @@ namespace quan_ly_quan_cafe
         public Admin()
         {
             InitializeComponent();
+
+            LoadAccountList();
+        }
+
+        public void LoadAccountList()
+        {
+            string query = "EXEC dbo.USP_GetAccountByUserName @userName";
+
+            DtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"staff"});
         }
 
         private void LbUserName_Click(object sender, EventArgs e)
