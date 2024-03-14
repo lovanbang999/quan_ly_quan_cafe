@@ -25,9 +25,9 @@ namespace quan_ly_quan_cafe.DAO
 
         public bool fLogin(string userName, string passWord)
         {
-            string query = "SELECT * FROM dbo.Account WHERE UserName = N'" + userName + "' AND PassWord = N'" + passWord + "' ";
+            string query = "USP_Login @userName , @passWord";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
 
             return result.Rows.Count > 0;
         }
