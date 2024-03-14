@@ -1,4 +1,6 @@
-﻿using System;
+﻿using quan_ly_quan_cafe.DAO;
+using QuanLyQuanCafe.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +17,36 @@ namespace quan_ly_quan_cafe
         public TableManager()
         {
             InitializeComponent();
-        }
 
+            LoadTable();
+        }
+        #region Method
+        void LoadTable()
+        {
+            List<Table> tableList = TableDAO.Instance.LoadTableList();
+            // them button vao fplTable
+            foreach (Table item in tableList)
+            {
+                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
+                btn.Text = item.Name + Environment.NewLine + item.Status;
+
+                // hieu ung ban trong 
+                switch (item.Status)
+                {
+                    case "Trống":
+                        btn.BackColor = Color.Aqua;
+                        break;
+                    default:
+                        btn.BackColor = Color.LightPink;
+                        break;
+                }
+                FlpTable.Controls.Add(btn);
+
+            }
+        }
+        #endregion
+
+        #region Events
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,4 +64,5 @@ namespace quan_ly_quan_cafe
             f.ShowDialog();
         }
     }
+    #endregion
 }
