@@ -29,7 +29,7 @@ namespace quan_ly_quan_cafe.DAO
 
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
 
-            return result.Rows.Count > 0;
+           return result.Rows.Count > 0;
         }
     }
 }
