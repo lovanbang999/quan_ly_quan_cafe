@@ -21,24 +21,34 @@ namespace quan_ly_quan_cafe
         public Admin()
         {
             InitializeComponent();
-
-            LoadAccountList();
-            LoadDateTimePickerBill();
-            LoadListBillByDate(dtpkFormDate.Value, dtpkToDate.Value);
+            LoadData();
         }
 
-        void Load()
+        void LoadData()
         {
             DtgvFood.DataSource = foodList;
             DtgvAccount.DataSource = accountList;
 
             LoadListFood();
             LoadAccount();
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dtpkFormDate.Value, dtpkToDate.Value);
             LoadCategoryIntoCombobox(CbFoodCategory);
             AddFoodBinding();
             AddAccountBinding();
         }
 
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFormDate.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkToDate.Value = dtpkFormDate.Value.AddMonths(1).AddDays(-1);
+        }
+
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            DtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
+        }
         void AddAccountBinding()
         {
             TxbUserName.DataBindings.Add(new Binding("Text", DtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
@@ -76,6 +86,7 @@ namespace quan_ly_quan_cafe
            foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
 
+        #region event
         private void btnShowFood_Click(object sender, EventArgs e)
         {
             LoadListFood();
@@ -109,17 +120,20 @@ namespace quan_ly_quan_cafe
 
         private void BtnAddFood_Click(object sender, EventArgs e)
         {
-
+            string name = TxbFoodName.Text;
+            int categoryID = (CbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)NmFoodPrice.Value;
+            
             if (FoodDAO.Instance.InsertFood(name, categoryID, price))
             {
-                MessageBox.Show("Thêm món thành công");
+                MessageBox.Show("thêm món thành công");
                 LoadListFood();
                 if (insertFood != null)
                     insertFood(this, new EventArgs());
             }
             else
             {
-                MessageBox.Show("Có lỗi khi thêm thức ăn");
+                MessageBox.Show("có lỗi khi thêm thức ăn");
             }
         }
 
@@ -160,14 +174,12 @@ namespace quan_ly_quan_cafe
             }
         }
 
-
         private event EventHandler insertFood;
         public event EventHandler InsertFood
         {
             add { insertFood += value; }
             remove { insertFood -= value; }
         }
-        #endregion
 
         private event EventHandler deleteFood;
         public event EventHandler DeleteFood

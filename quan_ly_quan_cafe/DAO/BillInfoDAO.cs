@@ -22,7 +22,7 @@ namespace quan_ly_quan_cafe.DAO
 
         public void DeleteBillInfoByFoodID(int id)
         {
-            DataProvider.Instance.ExecuteQuery("delete dbo.BillInfo WHERE idFood = " + id);
+            DataProvider.Instance.ExecuteQuery("DELETE dbo.BillInfo WHERE idFood = " + id);
         }
         public List<BillInfo> GetListBillInfo(int id)
         {

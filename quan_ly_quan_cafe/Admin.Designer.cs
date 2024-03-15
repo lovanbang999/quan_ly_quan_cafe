@@ -196,7 +196,6 @@
             this.BtnViewBill.TabIndex = 2;
             this.BtnViewBill.Text = "Thống kê";
             this.BtnViewBill.UseVisualStyleBackColor = true;
-            this.BtnViewBill.Click += new System.EventHandler(this.BtnViewBill_Click);
             // 
             // dtpkToDate
             // 
