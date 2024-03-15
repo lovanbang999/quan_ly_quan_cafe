@@ -97,7 +97,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnResetPassword = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.CbAccountType = new System.Windows.Forms.ComboBox();
             this.LbTypeAccount = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.TxbDisplayName = new System.Windows.Forms.TextBox();
@@ -112,6 +111,7 @@
             this.BtnEditAccount = new System.Windows.Forms.Button();
             this.BtnDeleteAccount = new System.Windows.Forms.Button();
             this.BtnAddAccount = new System.Windows.Forms.Button();
+            this.TxbAccountType = new System.Windows.Forms.TextBox();
             this.TcAdmin.SuspendLayout();
             this.TpBill.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -385,6 +385,7 @@
             this.TxbFoodID.ReadOnly = true;
             this.TxbFoodID.Size = new System.Drawing.Size(221, 22);
             this.TxbFoodID.TabIndex = 1;
+            this.TxbFoodID.TextChanged += new System.EventHandler(this.TxbFoodID_TextChanged);
             // 
             // LbFoodID
             // 
@@ -442,6 +443,7 @@
             this.BtnEditFood.TabIndex = 2;
             this.BtnEditFood.Text = "Sửa";
             this.BtnEditFood.UseVisualStyleBackColor = true;
+            this.BtnEditFood.Click += new System.EventHandler(this.BtnEditFood_Click);
             // 
             // BtnDeleteFood
             // 
@@ -451,6 +453,7 @@
             this.BtnDeleteFood.TabIndex = 1;
             this.BtnDeleteFood.Text = "Xóa";
             this.BtnDeleteFood.UseVisualStyleBackColor = true;
+            this.BtnDeleteFood.Click += new System.EventHandler(this.BtnDeleteFood_Click);
             // 
             // BtnAddFood
             // 
@@ -460,6 +463,7 @@
             this.BtnAddFood.TabIndex = 0;
             this.BtnAddFood.Text = "Thêm";
             this.BtnAddFood.UseVisualStyleBackColor = true;
+            this.BtnAddFood.Click += new System.EventHandler(this.BtnAddFood_Click);
             // 
             // TpFoodCategory
             // 
@@ -804,20 +808,12 @@
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.CbAccountType);
+            this.panel25.Controls.Add(this.TxbAccountType);
             this.panel25.Controls.Add(this.LbTypeAccount);
             this.panel25.Location = new System.Drawing.Point(4, 104);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(339, 44);
             this.panel25.TabIndex = 4;
-            // 
-            // CbAccountType
-            // 
-            this.CbAccountType.FormattingEnabled = true;
-            this.CbAccountType.Location = new System.Drawing.Point(155, 11);
-            this.CbAccountType.Name = "CbAccountType";
-            this.CbAccountType.Size = new System.Drawing.Size(181, 24);
-            this.CbAccountType.TabIndex = 1;
             // 
             // LbTypeAccount
             // 
@@ -946,6 +942,13 @@
             this.BtnAddAccount.TabIndex = 0;
             this.BtnAddAccount.Text = "Thêm";
             this.BtnAddAccount.UseVisualStyleBackColor = true;
+            // 
+            // TxbAccountType
+            // 
+            this.TxbAccountType.Location = new System.Drawing.Point(155, 10);
+            this.TxbAccountType.Name = "TxbAccountType";
+            this.TxbAccountType.Size = new System.Drawing.Size(181, 22);
+            this.TxbAccountType.TabIndex = 2;
             // 
             // Admin
             // 
@@ -1082,7 +1085,6 @@
         private System.Windows.Forms.DataGridView DtgvBill;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.ComboBox CbAccountType;
         private System.Windows.Forms.Label LbTypeAccount;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.TextBox TxbDisplayName;
@@ -1098,5 +1100,6 @@
         private System.Windows.Forms.Button BtnDeleteAccount;
         private System.Windows.Forms.Button BtnAddAccount;
         private System.Windows.Forms.Button BtnResetPassword;
+        private System.Windows.Forms.TextBox TxbAccountType;
     }
 }
