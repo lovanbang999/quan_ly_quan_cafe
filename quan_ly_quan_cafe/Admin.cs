@@ -16,6 +16,8 @@ namespace quan_ly_quan_cafe
     public partial class Admin : Form
     {
         BindingSource foodList = new BindingSource();
+
+        BindingSource accountList = new BindingSource();
         public Admin()
         {
             InitializeComponent();
@@ -27,10 +29,25 @@ namespace quan_ly_quan_cafe
         void Load()
         {
             DtgvFood.DataSource = foodList;
+            DtgvAccount.DataSource = accountList;
 
             LoadListFood();
+            LoadAccount();
             LoadCategoryIntoCombobox(CbFoodCategory);
             AddFoodBinding();
+            AddAccountBinding();
+        }
+
+        void AddAccountBinding()
+        {
+            TxbUserName.DataBindings.Add(new Binding("Text", DtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
+            TxbDisplayName.DataBindings.Add(new Binding("Text", DtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
+            TxbAccountType.DataBindings.Add(new Binding("Text", DtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
         public void LoadAccountList()
