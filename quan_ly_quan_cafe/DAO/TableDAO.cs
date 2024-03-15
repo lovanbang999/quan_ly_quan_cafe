@@ -23,8 +23,8 @@ namespace quan_ly_quan_cafe.DAO
             private set { instance = value; }
         }
         // chieu dai va rong button
-        public static int TableWidth = 90;
-        public static int TableHeight = 90;
+        public static int TableWidth = 100;
+        public static int TableHeight = 100;
         private TableDAO() { }
 
         public List<Table> LoadTableList()
