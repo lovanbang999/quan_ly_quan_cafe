@@ -214,7 +214,6 @@
             this.dtpkFormDate.Name = "dtpkFormDate";
             this.dtpkFormDate.Size = new System.Drawing.Size(250, 22);
             this.dtpkFormDate.TabIndex = 0;
-    
             // 
             // panel23
             // 
@@ -384,6 +383,7 @@
             this.TxbFoodID.ReadOnly = true;
             this.TxbFoodID.Size = new System.Drawing.Size(221, 22);
             this.TxbFoodID.TabIndex = 1;
+            this.TxbFoodID.TextChanged += new System.EventHandler(this.TxbFoodID_TextChanged);
             // 
             // LbFoodID
             // 
@@ -394,7 +394,6 @@
             this.LbFoodID.Size = new System.Drawing.Size(36, 24);
             this.LbFoodID.TabIndex = 0;
             this.LbFoodID.Text = "ID:";
-  
             // 
             // panel4
             // 
@@ -658,7 +657,6 @@
             this.CbTableStatus.Name = "CbTableStatus";
             this.CbTableStatus.Size = new System.Drawing.Size(169, 24);
             this.CbTableStatus.TabIndex = 2;
-   
             // 
             // LbStatusTable
             // 
