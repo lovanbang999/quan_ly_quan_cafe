@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyQuanCafe.DTO
+namespace quan_ly_quan_cafe.DTO
 {
     public class Table
     {

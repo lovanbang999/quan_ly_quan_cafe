@@ -1,5 +1,5 @@
 ﻿using quan_ly_quan_cafe.DAO;
-using QuanLyQuanCafe.DTO;
+using quan_ly_quan_cafe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,7 @@ namespace quan_ly_quan_cafe
 
             LoadTable();
         }
+
         #region Method
         void LoadTable()
         {
@@ -29,6 +30,8 @@ namespace quan_ly_quan_cafe
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
                 btn.Text = item.Name + Environment.NewLine + item.Status;
+                btn.Click += btn_Click; ;
+                btn.Tag = item;
 
                 // hieu ung ban trong 
                 switch (item.Status)
@@ -41,12 +44,33 @@ namespace quan_ly_quan_cafe
                         break;
                 }
                 FlpTable.Controls.Add(btn);
-
             }
         }
+
+        void ShowBill(int id)
+        {
+            LsBill.Items.Clear();
+            List<quan_ly_quan_cafe.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
+
+            foreach (quan_ly_quan_cafe.DTO.Menu item in listBillInfo)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Count.ToString());
+                lsvItem.SubItems.Add(item.Price.ToString());
+                lsvItem.SubItems.Add(item.TotalPrice.ToString());
+
+                LsBill.Items.Add(lsvItem);
+            }
+        }
+
         #endregion
 
         #region Events
+        void btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            ShowBill(tableID);
+        }
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
