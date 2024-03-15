@@ -15,6 +15,7 @@ namespace quan_ly_quan_cafe.DTO
             this.DateCheckIn = dateCheckin;
             this.DateCheckOut = dateCheckOut;
             this.Status = status;
+            this.Discount = discount;
 
         }
 
@@ -28,10 +29,13 @@ namespace quan_ly_quan_cafe.DTO
                 this.DateCheckOut = (DateTime?)dateCheckOutTemp;
 
             this.Status = (int)row["status"];
+            if (row["discount"].ToString() != "")
+                this.Discount = (int)row["discount"];
 
         }
 
-      
+        private int discount;
+        public int Discount { get => discount; set => discount = value; }
 
         private int status;
 
@@ -64,5 +68,6 @@ namespace quan_ly_quan_cafe.DTO
             get { return iD; }
             set { iD = value; }
         }
+
     }
 }
