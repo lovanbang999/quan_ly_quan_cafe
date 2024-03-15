@@ -42,6 +42,8 @@ namespace quan_ly_quan_cafe
         }
         void LoadTable()
         {
+            FlpTable.Controls.Clear();
+
             List<Table> tableList = TableDAO.Instance.LoadTableList();
             // them button vao fplTable
             foreach (Table item in tableList)
