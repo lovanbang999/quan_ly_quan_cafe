@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,16 +53,20 @@ namespace quan_ly_quan_cafe
         {
             LsBill.Items.Clear();
             List<quan_ly_quan_cafe.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
-
+            float totalPrice = 0;
             foreach (quan_ly_quan_cafe.DTO.Menu item in listBillInfo)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
                 lsvItem.SubItems.Add(item.Count.ToString());
                 lsvItem.SubItems.Add(item.Price.ToString());
                 lsvItem.SubItems.Add(item.TotalPrice.ToString());
-
+                // tinh tong tien
+                totalPrice += item.TotalPrice;
                 LsBill.Items.Add(lsvItem);
             }
+            // conver total VN
+            CultureInfo culture = new CultureInfo("vi-VN");
+            TxbTotalPrice.Text = totalPrice.ToString("c", culture);
         }
 
         #endregion
