@@ -1,5 +1,5 @@
 ﻿using quan_ly_quan_cafe.DAO;
-using QuanLyQuanCafe.DTO;
+using quan_ly_quan_cafe.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyQuanCafe.DAO
+namespace quan_ly_quan_cafe.DAO
 {
     public class CategoryDAO
     {

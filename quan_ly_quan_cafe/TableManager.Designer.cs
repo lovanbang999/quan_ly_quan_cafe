@@ -41,6 +41,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.TxbTotalPrice = new System.Windows.Forms.TextBox();
             this.CbSwicthTable = new System.Windows.Forms.ComboBox();
             this.BtnSwitchTable = new System.Windows.Forms.Button();
             this.NmDisCount = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +54,6 @@
             this.CbCategory = new System.Windows.Forms.ComboBox();
             this.FlpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.TxbTotalPrice = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,7 +77,7 @@
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 26);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -87,7 +87,7 @@
             this.thôngTinCáNhânToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             // 
             // thôngTinCáNhânToolStripMenuItem
@@ -161,6 +161,18 @@
             this.panel3.Size = new System.Drawing.Size(428, 62);
             this.panel3.TabIndex = 3;
             // 
+            // TxbTotalPrice
+            // 
+            this.TxbTotalPrice.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbTotalPrice.ForeColor = System.Drawing.Color.Red;
+            this.TxbTotalPrice.Location = new System.Drawing.Point(198, 15);
+            this.TxbTotalPrice.Name = "TxbTotalPrice";
+            this.TxbTotalPrice.ReadOnly = true;
+            this.TxbTotalPrice.Size = new System.Drawing.Size(137, 28);
+            this.TxbTotalPrice.TabIndex = 8;
+            this.TxbTotalPrice.Text = "0";
+            this.TxbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // CbSwicthTable
             // 
             this.CbSwicthTable.FormattingEnabled = true;
@@ -208,6 +220,7 @@
             this.BtnCheckOut.TabIndex = 3;
             this.BtnCheckOut.Text = "Thanh toán";
             this.BtnCheckOut.UseVisualStyleBackColor = true;
+            this.BtnCheckOut.Click += new System.EventHandler(this.BtnCheckOut_Click);
             // 
             // panel4
             // 
@@ -277,18 +290,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // TxbTotalPrice
-            // 
-            this.TxbTotalPrice.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.TxbTotalPrice.Location = new System.Drawing.Point(198, 15);
-            this.TxbTotalPrice.Name = "TxbTotalPrice";
-            this.TxbTotalPrice.ReadOnly = true;
-            this.TxbTotalPrice.Size = new System.Drawing.Size(137, 28);
-            this.TxbTotalPrice.TabIndex = 8;
-            this.TxbTotalPrice.Text = "0";
-            this.TxbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TableManager
             // 
