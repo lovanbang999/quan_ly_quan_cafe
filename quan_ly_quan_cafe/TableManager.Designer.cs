@@ -245,6 +245,7 @@
             this.BtnAddFood.TabIndex = 2;
             this.BtnAddFood.Text = "Thêm món";
             this.BtnAddFood.UseVisualStyleBackColor = true;
+            this.BtnAddFood.Click += new System.EventHandler(this.BtnAddFood_Click);
             // 
             // CbFood
             // 
@@ -261,6 +262,7 @@
             this.CbCategory.Name = "CbCategory";
             this.CbCategory.Size = new System.Drawing.Size(232, 24);
             this.CbCategory.TabIndex = 0;
+            this.CbCategory.SelectedIndexChanged += new System.EventHandler(this.CbCategory_SelectedIndexChanged);
             // 
             // FlpTable
             // 
