@@ -19,28 +19,37 @@ namespace quan_ly_quan_cafe
             InitializeComponent();
 
             LoadAccountList();
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dtpkFormDate.Value, dtpkToDate.Value);
         }
 
-        public void LoadAccountList()
+
+        void LoadAccountList()
         {
             string query = "EXEC dbo.USP_GetAccountByUserName @userName";
 
             DtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"staff"});
         }
 
-        private void LbUserName_Click(object sender, EventArgs e)
+        void LoadDateTimePickerBill()
         {
-
+            DateTime today = DateTime.Now;
+            dtpkFormDate.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkToDate.Value = dtpkFormDate.Value.AddMonths(1).AddDays(-1);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        #region methods
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
         {
-
+            DtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
         }
+        #endregion
 
-        private void dateTimePicker4_ValueChanged(object sender, EventArgs e)
+        #region event
+        private void BtnViewBill_Click(object sender, EventArgs e)
         {
-
+            LoadListBillByDate(dtpkFormDate.Value, dtpkToDate.Value);
         }
+        #endregion
     }
 }

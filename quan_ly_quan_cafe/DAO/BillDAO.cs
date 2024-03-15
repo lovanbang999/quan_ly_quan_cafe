@@ -38,9 +38,9 @@ namespace quan_ly_quan_cafe.DAO
 
             return -1;
         }
-        public void CheckOut(int id)
+        public void CheckOut(int id, int discount, float totalPrice)
         {
-            string query = "UPDATE dbo.Bill SET status = 1 WHERE id = " + id;
+            string query = "UPDATE dbo.Bill SET dateCheckOut = GETDATE(), status = 1, discount = " + discount  + ", totalPrice = " + totalPrice +  " WHERE id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
         // chen bill qua sql
@@ -48,6 +48,12 @@ namespace quan_ly_quan_cafe.DAO
         {
             DataProvider.Instance.ExecuteNonQuery("USP_InsertBill @idTable", new object[] { id });
         }
+
+        public DataTable GetBillListByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("EXEC USP_GetListBillByDate @dateCheckIn , @dateCheckOut", new object[] { checkIn, checkOut });
+        }
+
         // lay ra bill lon nhat
         public int GetMaxIDBill()
         {
