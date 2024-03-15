@@ -137,7 +137,32 @@ namespace quan_ly_quan_cafe
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Admin f = new Admin();
+            f.InsertFood += f_InsertFood;
+            f.DeleteFood += f_DeleteFood;
+            f.UpdateFood += f_UpdateFood;
             f.ShowDialog();
+        }
+
+        void f_UpdateFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((CbCategory.SelectedItem as Category).ID);
+            if (LsBill.Tag != null)
+                ShowBill((LsBill.Tag as Table).ID);
+        }
+
+        void f_DeleteFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((CbCategory.SelectedItem as Category).ID);
+            if (LsBill.Tag != null)
+                ShowBill((LsBill.Tag as Table).ID);
+            LoadTable();
+        }
+
+        void f_InsertFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((CbCategory.SelectedItem as Category).ID);
+            if (LsBill.Tag != null)
+                ShowBill((LsBill.Tag as Table).ID);
         }
 
         private void CbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,6 +181,13 @@ namespace quan_ly_quan_cafe
         private void BtnAddFood_Click(object sender, EventArgs e)
         {
             Table table = LsBill.Tag as Table;
+
+            if (table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn");
+                return;
+            }
+
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int foodID = (CbFood.SelectedItem as Food).Id;
             int count = (int)NmFoodCount.Value;
@@ -181,7 +213,7 @@ namespace quan_ly_quan_cafe
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int discount = (int)NmDisCount.Value;
-            // can xu li lai
+
             double totalPrice = Convert.ToDouble(TxbTotalPrice.Text.Split(',')[0]);
             double finalTotalPrice = totalPrice - (totalPrice / 100) * discount;
 
@@ -189,7 +221,7 @@ namespace quan_ly_quan_cafe
             {
                 if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá\n=> {1} - ({1} / 100) x {2} = {3}", table.Name, totalPrice, discount, finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount);
+                    BillDAO.Instance.CheckOut(idBill, discount, (float)finalTotalPrice);
                     ShowBill(table.ID);
 
                     LoadTable();
