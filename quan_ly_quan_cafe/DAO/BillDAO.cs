@@ -43,12 +43,12 @@ namespace quan_ly_quan_cafe.DAO
         {
             DataProvider.Instance.ExecuteNonQuery("USP_InsertBill @idTable", new object[] { id });
         }
+        // lay ra bill lon nhat
         public int GetMaxIDBill()
         {
             try
             {
-
-            return (int)DataProvider.Instance.ExecuteScalar("Select Max(id) from dbo.Bill");
+                return (int)DataProvider.Instance.ExecuteScalar("Select Max(id) from dbo.Bill");
             }
             catch { return -1; }
         }

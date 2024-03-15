@@ -135,12 +135,13 @@ namespace quan_ly_quan_cafe
 
             if (idBill == -1)
             {
+                // them bill moi
                 BillDAO.Instance.InsertBill(table.ID);
                 BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID, count);
             }
             else
             {
-                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID, count);
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
             }
             ShowBill(table.ID);
         }
