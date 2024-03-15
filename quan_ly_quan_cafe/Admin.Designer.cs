@@ -441,6 +441,7 @@
             this.BtnEditFood.TabIndex = 2;
             this.BtnEditFood.Text = "Sửa";
             this.BtnEditFood.UseVisualStyleBackColor = true;
+            this.BtnEditFood.Click += new System.EventHandler(this.BtnEditFood_Click);
             // 
             // BtnDeleteFood
             // 
@@ -450,6 +451,7 @@
             this.BtnDeleteFood.TabIndex = 1;
             this.BtnDeleteFood.Text = "Xóa";
             this.BtnDeleteFood.UseVisualStyleBackColor = true;
+            this.BtnDeleteFood.Click += new System.EventHandler(this.BtnDeleteFood_Click);
             // 
             // BtnAddFood
             // 
@@ -459,6 +461,7 @@
             this.BtnAddFood.TabIndex = 0;
             this.BtnAddFood.Text = "Thêm";
             this.BtnAddFood.UseVisualStyleBackColor = true;
+            this.BtnAddFood.Click += new System.EventHandler(this.BtnAddFood_Click);
             // 
             // TpFoodCategory
             // 
