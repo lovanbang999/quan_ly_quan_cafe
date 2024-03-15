@@ -71,7 +71,6 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1017, 28);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,14 +93,14 @@
             // PersonalInformationToolStripMenuItem
             // 
             this.PersonalInformationToolStripMenuItem.Name = "PersonalInformationToolStripMenuItem";
-            this.PersonalInformationToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.PersonalInformationToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.PersonalInformationToolStripMenuItem.Text = "Thông tin cá nhân";
             this.PersonalInformationToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // LogOutToolStripMenuItem
             // 
             this.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem";
-            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.LogOutToolStripMenuItem.Text = "Đăng xuất";
             this.LogOutToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -190,6 +189,7 @@
             this.BtnSwitchTable.TabIndex = 6;
             this.BtnSwitchTable.Text = "Chuyển bàn";
             this.BtnSwitchTable.UseVisualStyleBackColor = true;
+            this.BtnSwitchTable.Click += new System.EventHandler(this.BtnSwitchTable_Click);
             // 
             // NmDisCount
             // 
