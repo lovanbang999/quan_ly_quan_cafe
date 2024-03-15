@@ -31,7 +31,7 @@ namespace quan_ly_quan_cafe.DAO
         {
             List<Table> tableList = new List<Table>();
 
-            DataTable data = DataProvider.Instance.ExecuteQuery("UPS_GetTableList");
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetTableList");
 
             // khoi tao danh sach ban
             foreach (DataRow item in data.Rows)

@@ -20,6 +20,8 @@ namespace quan_ly_quan_cafe
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+
+            // ktra tkoan va mk
             string userName = TxbUserName.Text;
             string passWord = TxbPassWord.Text;
             if (flogin(userName, passWord))
@@ -34,6 +36,7 @@ namespace quan_ly_quan_cafe
                 MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
             }
         }
+        // check tk va mk tu data base
         bool flogin(string username, string password)
         {
             return AccountDAO.Instance.fLogin(username, password);
@@ -43,6 +46,7 @@ namespace quan_ly_quan_cafe
             Application.Exit();
         }
 
+        // out
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(MessageBox.Show("Bạn có thật sự muốn thoát ?","Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)

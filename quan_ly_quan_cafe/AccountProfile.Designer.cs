@@ -46,7 +46,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.TxbUserName = new System.Windows.Forms.TextBox();
             this.LbUserName = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -223,14 +222,6 @@
             this.LbUserName.TabIndex = 0;
             this.LbUserName.Text = "Tên đăng nhập:";
             // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(241, 0);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(8, 4);
-            this.checkedListBox1.TabIndex = 1;
-            // 
             // AccountProfile
             // 
             this.AcceptButton = this.BtnUpdate;
@@ -238,7 +229,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnExit;
             this.ClientSize = new System.Drawing.Size(667, 439);
-            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.panel1);
             this.Name = "AccountProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -278,6 +268,5 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox TxbPassWord;
         private System.Windows.Forms.Label LbPassWord;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

@@ -231,6 +231,7 @@
             // 
             // FlpTable
             // 
+            this.FlpTable.AutoScroll = true;
             this.FlpTable.Location = new System.Drawing.Point(9, 31);
             this.FlpTable.Name = "FlpTable";
             this.FlpTable.Size = new System.Drawing.Size(432, 407);
