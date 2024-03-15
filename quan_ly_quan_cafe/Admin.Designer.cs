@@ -214,7 +214,7 @@
             this.dtpkFormDate.Name = "dtpkFormDate";
             this.dtpkFormDate.Size = new System.Drawing.Size(250, 22);
             this.dtpkFormDate.TabIndex = 0;
-            this.dtpkFormDate.ValueChanged += new System.EventHandler(this.dateTimePicker4_ValueChanged);
+    
             // 
             // panel23
             // 
@@ -394,7 +394,7 @@
             this.LbFoodID.Size = new System.Drawing.Size(36, 24);
             this.LbFoodID.TabIndex = 0;
             this.LbFoodID.Text = "ID:";
-            this.LbFoodID.Click += new System.EventHandler(this.LbUserName_Click);
+  
             // 
             // panel4
             // 
@@ -658,7 +658,7 @@
             this.CbTableStatus.Name = "CbTableStatus";
             this.CbTableStatus.Size = new System.Drawing.Size(169, 24);
             this.CbTableStatus.TabIndex = 2;
-            this.CbTableStatus.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+   
             // 
             // LbStatusTable
             // 

@@ -19,6 +19,12 @@ namespace quan_ly_quan_cafe
             InitializeComponent();
 
             LoadAccountList();
+            Load();
+        }
+
+        void Load()
+        {
+            LoadListFood();
         }
 
         public void LoadAccountList()
@@ -28,19 +34,14 @@ namespace quan_ly_quan_cafe
             DtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"staff"});
         }
 
-        private void LbUserName_Click(object sender, EventArgs e)
+        void LoadListFood()
         {
-
+            DtgvFood.DataSource = FoodDAO.Instance.GetListFood();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnShowFood_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dateTimePicker4_ValueChanged(object sender, EventArgs e)
-        {
-
+            LoadListFood();
         }
     }
 }
