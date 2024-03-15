@@ -86,6 +86,7 @@
             this.BtnUpdate.TabIndex = 2;
             this.BtnUpdate.Text = "Cập nhập";
             this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // panel6
             // 

@@ -1,4 +1,5 @@
 ﻿using quan_ly_quan_cafe.DAO;
+using quan_ly_quan_cafe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,8 @@ namespace quan_ly_quan_cafe
             string passWord = TxbPassWord.Text;
             if (flogin(userName, passWord))
             {
-                TableManager f = new TableManager();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                TableManager f = new TableManager(loginAccount);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
