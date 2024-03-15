@@ -38,6 +38,11 @@ namespace quan_ly_quan_cafe.DAO
 
             return -1;
         }
+        public void CheckOut(int id)
+        {
+            string query = "UPDATE dbo.Bill SET status = 1 WHERE id = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
         // chen bill qua sql
         public void InsertBill(int id)
         {

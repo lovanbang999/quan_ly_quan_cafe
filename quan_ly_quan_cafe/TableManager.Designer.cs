@@ -166,10 +166,10 @@
             // 
             this.TxbTotalPrice.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxbTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.TxbTotalPrice.Location = new System.Drawing.Point(184, 15);
+            this.TxbTotalPrice.Location = new System.Drawing.Point(198, 15);
             this.TxbTotalPrice.Name = "TxbTotalPrice";
             this.TxbTotalPrice.ReadOnly = true;
-            this.TxbTotalPrice.Size = new System.Drawing.Size(89, 28);
+            this.TxbTotalPrice.Size = new System.Drawing.Size(137, 28);
             this.TxbTotalPrice.TabIndex = 8;
             this.TxbTotalPrice.Text = "0";
             this.TxbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -221,6 +221,7 @@
             this.BtnCheckOut.TabIndex = 3;
             this.BtnCheckOut.Text = "Thanh toán";
             this.BtnCheckOut.UseVisualStyleBackColor = true;
+            this.BtnCheckOut.Click += new System.EventHandler(this.BtnCheckOut_Click);
             // 
             // panel4
             // 
