@@ -1,5 +1,7 @@
 ﻿using quan_ly_quan_cafe.DAO;
 using quan_ly_quan_cafe.DTO;
+using QuanLyQuanCafe.DAO;
+using QuanLyQuanCafe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +32,25 @@ namespace quan_ly_quan_cafe
             this.LoginAccount = acc;
 
             LoadTable();
+            LoadCategory();
         }
 
         #region Method
+
+        // hthi categoty
+        void LoadCategory()
+        {
+            List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
+            CbCategory.DataSource = listCategory;
+            CbCategory.DisplayMember = "Name";
+        }
+        // hthi food
+        void LoadFoodListByCategoryID(int id)
+        {
+            List<Food> listFood = FoodDAO.Instance.GetFoodByCategoryID(id);
+            CbFood.DataSource = listFood;
+            CbFood.DisplayMember = "Name";
+        }
 
         void ChangeAccount(int type)
         {
@@ -91,6 +109,7 @@ namespace quan_ly_quan_cafe
         void btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            LsBill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,6 +133,39 @@ namespace quan_ly_quan_cafe
         {
             Admin f = new Admin();
             f.ShowDialog();
+        }
+
+        private void CbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null) { return; }
+            Category selected = cb.SelectedItem as Category;
+            id = selected.ID;
+            LoadFoodListByCategoryID(id);
+
+        }
+
+        // them mon an vao hoa don
+        private void BtnAddFood_Click(object sender, EventArgs e)
+        {
+            Table table = LsBill.Tag as Table;
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            int foodID = (CbFood.SelectedItem as Food).Id;
+            int count = (int)NmFoodCount.Value;
+
+            if (idBill == -1)
+            {
+                // them bill moi
+                BillDAO.Instance.InsertBill(table.ID);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID, count);
+            }
+            else
+            {
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
+            }
+            ShowBill(table.ID);
         }
     }
     #endregion
