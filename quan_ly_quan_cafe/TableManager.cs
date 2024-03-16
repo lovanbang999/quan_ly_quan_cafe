@@ -137,6 +137,7 @@ namespace quan_ly_quan_cafe
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Admin f = new Admin();
+            f.loginAccount = loginAccount;
             f.InsertFood += f_InsertFood;
             f.DeleteFood += f_DeleteFood;
             f.UpdateFood += f_UpdateFood;
@@ -210,11 +211,17 @@ namespace quan_ly_quan_cafe
         private void BtnCheckOut_Click(object sender, EventArgs e)
         {
             Table table = LsBill.Tag as Table;
+            
+            if (table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn");
+                return;
+            }
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int discount = (int)NmDisCount.Value;
 
-            double totalPrice = Convert.ToDouble(TxbTotalPrice.Text.Split(',')[0]);
+            double totalPrice = Convert.ToDouble((TxbTotalPrice.Text.Split(',')[0]).Replace(".", ""));
             double finalTotalPrice = totalPrice - (totalPrice / 100) * discount;
 
             if (idBill != -1)

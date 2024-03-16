@@ -18,12 +18,16 @@ namespace quan_ly_quan_cafe
         BindingSource foodList = new BindingSource();
 
         BindingSource accountList = new BindingSource();
+
+        public Account loginAccount;
+
         public Admin()
         {
             InitializeComponent();
             LoadData();
         }
 
+        #region method
         void LoadData()
         {
             DtgvFood.DataSource = foodList;
@@ -53,7 +57,7 @@ namespace quan_ly_quan_cafe
         {
             TxbUserName.DataBindings.Add(new Binding("Text", DtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
             TxbDisplayName.DataBindings.Add(new Binding("Text", DtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
-            TxbAccountType.DataBindings.Add(new Binding("Text", DtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+            ChooseTypeAccount.DataBindings.Add(new Binding("Value", DtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
         }
 
         void LoadAccount()
@@ -86,7 +90,112 @@ namespace quan_ly_quan_cafe
            foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
 
+        List<Food> SearchFoodByName(string name)
+        {
+            List<Food> listFood = FoodDAO.Instance.SearchFoodByName(name);
+
+            return listFood;
+        }
+
+        void AddAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Thêm tài khoản thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Thêm tài khoản thất bại!");
+            }
+
+            LoadAccount();
+        }
+
+        void UpdateAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Cập nhật tài khoản thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật tài khoản thất bại!");
+            }
+
+            LoadAccount();
+        }
+
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.UserName.Equals(userName)) {
+                MessageBox.Show("Bạn không thể xóa tài khoản của mình!");
+                return;
+            }
+
+            if (AccountDAO.Instance.DeleteAccount(userName))
+            {
+                MessageBox.Show("Xóa tài khoản thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Xóa tài khoản thất bại!");
+            }
+
+            LoadAccount();
+        }
+
+        void ResetPassword(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Đặt lại mật khẩu thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Đặt lại mật khẩu thất bại!");
+            }
+        }
+
+        #endregion
+
         #region event
+        private void BtnAddAccount_Click(object sender, EventArgs e)
+        {
+            string userName = TxbUserName.Text;
+            string displayName = TxbDisplayName.Text;
+            int type = (int)ChooseTypeAccount.Value;
+
+            AddAccount(userName, displayName, type);
+        }
+
+        private void BtnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            string userName = TxbUserName.Text;
+
+            DeleteAccount(userName);
+        }
+
+        private void BtnEditAccount_Click(object sender, EventArgs e)
+        {
+            string userName = TxbUserName.Text;
+            string displayName = TxbDisplayName.Text;
+            int type = (int)ChooseTypeAccount.Value;
+
+            UpdateAccount(userName, displayName, type);
+        }
+
+        private void BtnResetPassword_Click(object sender, EventArgs e)
+        {
+            string userName = TxbUserName.Text;
+
+            ResetPassword(userName);
+        }
+
+        private void BtnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
+
         private void btnShowFood_Click(object sender, EventArgs e)
         {
             LoadListFood();
@@ -172,6 +281,11 @@ namespace quan_ly_quan_cafe
             {
                 MessageBox.Show("Có lỗi khi xóa thức ăn");
             }
+        }
+
+        private void BtnSearchFood_Click(object sender, EventArgs e)
+        {
+            foodList.DataSource = SearchFoodByName(TxbSearchFoodName.Text);
         }
 
         private event EventHandler insertFood;

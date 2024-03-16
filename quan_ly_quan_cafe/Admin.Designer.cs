@@ -111,7 +111,7 @@
             this.BtnEditAccount = new System.Windows.Forms.Button();
             this.BtnDeleteAccount = new System.Windows.Forms.Button();
             this.BtnAddAccount = new System.Windows.Forms.Button();
-            this.TxbAccountType = new System.Windows.Forms.TextBox();
+            this.ChooseTypeAccount = new System.Windows.Forms.NumericUpDown();
             this.TcAdmin.SuspendLayout();
             this.TpBill.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -151,6 +151,7 @@
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).BeginInit();
             this.panel29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChooseTypeAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // TcAdmin
@@ -272,6 +273,7 @@
             this.BtnSearchFood.TabIndex = 4;
             this.BtnSearchFood.Text = "Tìm";
             this.BtnSearchFood.UseVisualStyleBackColor = true;
+            this.BtnSearchFood.Click += new System.EventHandler(this.BtnSearchFood_Click);
             // 
             // panel5
             // 
@@ -804,10 +806,11 @@
             this.BtnResetPassword.TabIndex = 5;
             this.BtnResetPassword.Text = "Đặt lại mật khẩu";
             this.BtnResetPassword.UseVisualStyleBackColor = true;
+            this.BtnResetPassword.Click += new System.EventHandler(this.BtnResetPassword_Click);
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.TxbAccountType);
+            this.panel25.Controls.Add(this.ChooseTypeAccount);
             this.panel25.Controls.Add(this.LbTypeAccount);
             this.panel25.Location = new System.Drawing.Point(4, 104);
             this.panel25.Name = "panel25";
@@ -863,7 +866,6 @@
             // 
             this.TxbUserName.Location = new System.Drawing.Point(156, 12);
             this.TxbUserName.Name = "TxbUserName";
-            this.TxbUserName.ReadOnly = true;
             this.TxbUserName.Size = new System.Drawing.Size(181, 22);
             this.TxbUserName.TabIndex = 1;
             // 
@@ -914,6 +916,7 @@
             this.BtnShowAccount.TabIndex = 3;
             this.BtnShowAccount.Text = "Xem";
             this.BtnShowAccount.UseVisualStyleBackColor = true;
+            this.BtnShowAccount.Click += new System.EventHandler(this.BtnShowAccount_Click);
             // 
             // BtnEditAccount
             // 
@@ -923,6 +926,7 @@
             this.BtnEditAccount.TabIndex = 2;
             this.BtnEditAccount.Text = "Sửa";
             this.BtnEditAccount.UseVisualStyleBackColor = true;
+            this.BtnEditAccount.Click += new System.EventHandler(this.BtnEditAccount_Click);
             // 
             // BtnDeleteAccount
             // 
@@ -932,6 +936,7 @@
             this.BtnDeleteAccount.TabIndex = 1;
             this.BtnDeleteAccount.Text = "Xóa";
             this.BtnDeleteAccount.UseVisualStyleBackColor = true;
+            this.BtnDeleteAccount.Click += new System.EventHandler(this.BtnDeleteAccount_Click);
             // 
             // BtnAddAccount
             // 
@@ -941,13 +946,19 @@
             this.BtnAddAccount.TabIndex = 0;
             this.BtnAddAccount.Text = "Thêm";
             this.BtnAddAccount.UseVisualStyleBackColor = true;
+            this.BtnAddAccount.Click += new System.EventHandler(this.BtnAddAccount_Click);
             // 
-            // TxbAccountType
+            // ChooseTypeAccount
             // 
-            this.TxbAccountType.Location = new System.Drawing.Point(155, 10);
-            this.TxbAccountType.Name = "TxbAccountType";
-            this.TxbAccountType.Size = new System.Drawing.Size(181, 22);
-            this.TxbAccountType.TabIndex = 2;
+            this.ChooseTypeAccount.Location = new System.Drawing.Point(160, 11);
+            this.ChooseTypeAccount.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ChooseTypeAccount.Name = "ChooseTypeAccount";
+            this.ChooseTypeAccount.Size = new System.Drawing.Size(60, 22);
+            this.ChooseTypeAccount.TabIndex = 1;
             // 
             // Admin
             // 
@@ -1010,6 +1021,7 @@
             this.panel28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).EndInit();
             this.panel29.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChooseTypeAccount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1099,6 +1111,6 @@
         private System.Windows.Forms.Button BtnDeleteAccount;
         private System.Windows.Forms.Button BtnAddAccount;
         private System.Windows.Forms.Button BtnResetPassword;
-        private System.Windows.Forms.TextBox TxbAccountType;
+        private System.Windows.Forms.NumericUpDown ChooseTypeAccount;
     }
 }

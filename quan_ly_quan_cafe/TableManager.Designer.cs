@@ -125,6 +125,7 @@
             this.LsBill.Name = "LsBill";
             this.LsBill.Size = new System.Drawing.Size(425, 271);
             this.LsBill.TabIndex = 0;
+            this.LsBill.Tag = "";
             this.LsBill.UseCompatibleStateImageBehavior = false;
             this.LsBill.View = System.Windows.Forms.View.Details;
             // 
