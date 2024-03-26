@@ -2,13 +2,7 @@
 using quan_ly_quan_cafe.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace quan_ly_quan_cafe
@@ -18,6 +12,10 @@ namespace quan_ly_quan_cafe
         BindingSource foodList = new BindingSource();
 
         BindingSource accountList = new BindingSource();
+
+        BindingSource categoryList = new BindingSource();
+
+        BindingSource tableList = new BindingSource();
 
         public Account loginAccount;
 
@@ -32,14 +30,21 @@ namespace quan_ly_quan_cafe
         {
             DtgvFood.DataSource = foodList;
             DtgvAccount.DataSource = accountList;
+            DtgvCategory.DataSource = categoryList;
+            DtgvTable.DataSource = tableList;
 
             LoadListFood();
             LoadAccount();
+            LoadListCategory();
+            LoadListTable();
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFormDate.Value, dtpkToDate.Value);
             LoadCategoryIntoCombobox(CbFoodCategory);
             AddFoodBinding();
+            AddCategoryBinding();
             AddAccountBinding();
+            AddTableDinding();
+            LoadStatusIntoCombobox(CbTableStatus);
         }
 
         void LoadDateTimePickerBill()
@@ -88,6 +93,34 @@ namespace quan_ly_quan_cafe
         void LoadListFood()
         {
            foodList.DataSource = FoodDAO.Instance.GetListFood();
+        }
+
+        void LoadListCategory()
+        {
+            categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
+        }
+
+        void AddCategoryBinding()
+        {
+            TxbCategoryID.DataBindings.Add(new Binding("Text", DtgvCategory.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            TxbNameCategory.DataBindings.Add(new Binding("Text", DtgvCategory.DataSource, "Name", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadListTable()
+        {
+            tableList.DataSource = TableDAO.Instance.LoadTableList();
+        }
+
+        void AddTableDinding()
+        {
+            TxbTableID.DataBindings.Add(new Binding("Text", DtgvTable.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            TxbTableName.DataBindings.Add(new Binding("Text", DtgvTable.DataSource, "Name", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadStatusIntoCombobox(ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "Status";
         }
 
         List<Food> SearchFoodByName(string name)
@@ -205,25 +238,41 @@ namespace quan_ly_quan_cafe
         {
             if (DtgvFood.SelectedCells.Count > 0)
             {
-                int id = (int)DtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
-
-                Category cateogory = CategoryDAO.Instance.GetCategoryByID(id);
-
-                CbFoodCategory.SelectedItem = cateogory;
-
-                int index = -1;
-                int i = 0;
-                foreach (Category item in CbFoodCategory.Items)
+                if (DtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value != null)
                 {
-                    if (item.ID == cateogory.ID)
-                    {
-                        index = i;
-                        break;
-                    }
-                    i++;
-                }
+                    int id = (int)DtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
 
-                CbFoodCategory.SelectedIndex = index;
+                    Category cateogory = CategoryDAO.Instance.GetCategoryByID(id);
+
+                    CbFoodCategory.SelectedItem = cateogory;
+
+                    int index = -1;
+                    int i = 0;
+                    foreach (Category item in CbFoodCategory.Items)
+                    {
+                        if (item.ID == cateogory.ID)
+                        {
+                            index = i;
+                            break;
+                        }
+                        i++;
+                    }
+
+                    CbFoodCategory.SelectedIndex = index;
+                }
+            }
+        }
+
+        private void SelectRowAndSimulateClick(int rowIndex)
+        {
+            // Kiểm tra chỉ mục của dòng được chọn có hợp lệ không
+            if (rowIndex >= 0 && rowIndex < DtgvFood.Rows.Count)
+            {
+                DtgvFood.ClearSelection();
+                DtgvFood.Rows[rowIndex].Selected = true;
+
+                // Mô phỏng click lên hàng trong DtgvFood
+                DtgvFood_CellClick(DtgvFood, new DataGridViewCellEventArgs(0, rowIndex));
             }
         }
 
@@ -237,8 +286,9 @@ namespace quan_ly_quan_cafe
             {
                 MessageBox.Show("thêm món thành công");
                 LoadListFood();
+                SelectRowAndSimulateClick(DtgvFood.Rows.Count - 1);
                 if (insertFood != null)
-                    insertFood(this, new EventArgs());
+                    insertFood(DtgvFood.Rows[DtgvFood.Rows.Count - 1].Cells["CategoryID"].Value, new EventArgs());
             }
             else
             {
@@ -308,6 +358,110 @@ namespace quan_ly_quan_cafe
             add { updateFood += value; }
             remove { updateFood -= value; }
         }
+
+        private void BtnAddCategory_Click(object sender, EventArgs e)
+        {
+            string name = TxbNameCategory.Text;
+
+            if (CategoryDAO.Instance.InsertCategory(name))
+            {
+                MessageBox.Show("Thêm danh Mục thành công");
+                LoadListCategory();
+                LoadListFood();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm danh mục");
+            }
+        }
+
+        private void BtnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(TxbCategoryID.Text);
+
+            if (CategoryDAO.Instance.DeleteCategory(id))
+            {
+                MessageBox.Show("Xóa danh mục thành công");
+                LoadListCategory();
+                LoadListFood();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa danh mục");
+            }
+        }
+
+        private void BtnEditCategory_Click(object sender, EventArgs e)
+        {
+            string name = TxbNameCategory.Text;
+            int id = Convert.ToInt32(TxbCategoryID.Text);
+
+            if (CategoryDAO.Instance.UpdateCategory(name, id))
+            {
+                MessageBox.Show("Sửa danh mục thành công");
+                LoadListCategory();
+                LoadListFood();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa danh mục");
+            }
+        }
+
+        #region Table event
+        private void BtnAddTable_Click(object sender, EventArgs e)
+        {
+            string name = TxbTableName.Text;
+
+            if (TableDAO.Instance.InsertTable(name))
+            {
+                MessageBox.Show("Thêm bàn thành công");
+                LoadListTable();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm bàn");
+            }
+        }
+
+        private void BtnDeleteTable_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(TxbTableID.Text);
+
+            if (TableDAO.Instance.DeleteTable(id))
+            {
+                MessageBox.Show("Xóa bàn thành công");
+                LoadListTable();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa bàn");
+            }
+        }
+
+        private void BtnEditTable_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(TxbTableID.Text);
+            string name = TxbTableName.Text;
+
+            if (TableDAO.Instance.UpdateTable(id, name))
+            {
+                MessageBox.Show("Sửa bàn thành công");
+                LoadListTable();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa bàn");
+            }
+        }
+
+        #endregion Table event
+
         #endregion
+
+        private void DtgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

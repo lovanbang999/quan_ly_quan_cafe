@@ -97,6 +97,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnResetPassword = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.ChooseTypeAccount = new System.Windows.Forms.NumericUpDown();
             this.LbTypeAccount = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.TxbDisplayName = new System.Windows.Forms.TextBox();
@@ -111,7 +112,6 @@
             this.BtnEditAccount = new System.Windows.Forms.Button();
             this.BtnDeleteAccount = new System.Windows.Forms.Button();
             this.BtnAddAccount = new System.Windows.Forms.Button();
-            this.ChooseTypeAccount = new System.Windows.Forms.NumericUpDown();
             this.TcAdmin.SuspendLayout();
             this.TpBill.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -146,12 +146,12 @@
             this.TpAccount.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChooseTypeAccount)).BeginInit();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).BeginInit();
             this.panel29.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ChooseTypeAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // TcAdmin
@@ -164,7 +164,7 @@
             this.TcAdmin.Location = new System.Drawing.Point(12, 12);
             this.TcAdmin.Name = "TcAdmin";
             this.TcAdmin.SelectedIndex = 0;
-            this.TcAdmin.Size = new System.Drawing.Size(785, 437);
+            this.TcAdmin.Size = new System.Drawing.Size(792, 437);
             this.TcAdmin.TabIndex = 0;
             // 
             // TpBill
@@ -174,7 +174,7 @@
             this.TpBill.Location = new System.Drawing.Point(4, 25);
             this.TpBill.Name = "TpBill";
             this.TpBill.Padding = new System.Windows.Forms.Padding(3);
-            this.TpBill.Size = new System.Drawing.Size(777, 408);
+            this.TpBill.Size = new System.Drawing.Size(784, 408);
             this.TpBill.TabIndex = 0;
             this.TpBill.Text = "Doanh thu";
             this.TpBill.UseVisualStyleBackColor = true;
@@ -230,6 +230,7 @@
             this.DtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgvBill.Location = new System.Drawing.Point(3, 3);
             this.DtgvBill.Name = "DtgvBill";
+            this.DtgvBill.ReadOnly = true;
             this.DtgvBill.RowHeadersWidth = 51;
             this.DtgvBill.RowTemplate.Height = 24;
             this.DtgvBill.Size = new System.Drawing.Size(762, 346);
@@ -244,7 +245,7 @@
             this.TpFood.Location = new System.Drawing.Point(4, 25);
             this.TpFood.Name = "TpFood";
             this.TpFood.Padding = new System.Windows.Forms.Padding(3);
-            this.TpFood.Size = new System.Drawing.Size(777, 408);
+            this.TpFood.Size = new System.Drawing.Size(784, 408);
             this.TpFood.TabIndex = 1;
             this.TpFood.Text = "Thức ăn";
             this.TpFood.UseVisualStyleBackColor = true;
@@ -410,11 +411,14 @@
             // 
             this.DtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgvFood.Location = new System.Drawing.Point(3, 3);
+            this.DtgvFood.MultiSelect = false;
             this.DtgvFood.Name = "DtgvFood";
+            this.DtgvFood.ReadOnly = true;
             this.DtgvFood.RowHeadersWidth = 51;
             this.DtgvFood.RowTemplate.Height = 24;
             this.DtgvFood.Size = new System.Drawing.Size(416, 337);
             this.DtgvFood.TabIndex = 0;
+            this.DtgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgvFood_CellClick);
             // 
             // panel3
             // 
@@ -474,7 +478,7 @@
             this.TpFoodCategory.Location = new System.Drawing.Point(4, 25);
             this.TpFoodCategory.Name = "TpFoodCategory";
             this.TpFoodCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.TpFoodCategory.Size = new System.Drawing.Size(777, 408);
+            this.TpFoodCategory.Size = new System.Drawing.Size(784, 408);
             this.TpFoodCategory.TabIndex = 2;
             this.TpFoodCategory.Text = "Danh mục";
             this.TpFoodCategory.UseVisualStyleBackColor = true;
@@ -489,9 +493,12 @@
             // 
             // DtgvCategory
             // 
+            this.DtgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgvCategory.Location = new System.Drawing.Point(3, 3);
+            this.DtgvCategory.MultiSelect = false;
             this.DtgvCategory.Name = "DtgvCategory";
+            this.DtgvCategory.ReadOnly = true;
             this.DtgvCategory.RowHeadersWidth = 51;
             this.DtgvCategory.RowTemplate.Height = 24;
             this.DtgvCategory.Size = new System.Drawing.Size(419, 334);
@@ -587,6 +594,7 @@
             this.BtnEditCategory.TabIndex = 2;
             this.BtnEditCategory.Text = "Sửa";
             this.BtnEditCategory.UseVisualStyleBackColor = true;
+            this.BtnEditCategory.Click += new System.EventHandler(this.BtnEditCategory_Click);
             // 
             // BtnDeleteCategory
             // 
@@ -596,6 +604,7 @@
             this.BtnDeleteCategory.TabIndex = 1;
             this.BtnDeleteCategory.Text = "Xóa";
             this.BtnDeleteCategory.UseVisualStyleBackColor = true;
+            this.BtnDeleteCategory.Click += new System.EventHandler(this.BtnDeleteCategory_Click);
             // 
             // BtnAddCategory
             // 
@@ -605,6 +614,7 @@
             this.BtnAddCategory.TabIndex = 0;
             this.BtnAddCategory.Text = "Thêm";
             this.BtnAddCategory.UseVisualStyleBackColor = true;
+            this.BtnAddCategory.Click += new System.EventHandler(this.BtnAddCategory_Click);
             // 
             // TpTable
             // 
@@ -614,7 +624,7 @@
             this.TpTable.Location = new System.Drawing.Point(4, 25);
             this.TpTable.Name = "TpTable";
             this.TpTable.Padding = new System.Windows.Forms.Padding(3);
-            this.TpTable.Size = new System.Drawing.Size(777, 408);
+            this.TpTable.Size = new System.Drawing.Size(784, 408);
             this.TpTable.TabIndex = 3;
             this.TpTable.Text = "Bàn ăn";
             this.TpTable.UseVisualStyleBackColor = true;
@@ -631,7 +641,9 @@
             // 
             this.DtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgvTable.Location = new System.Drawing.Point(3, 5);
+            this.DtgvTable.MultiSelect = false;
             this.DtgvTable.Name = "DtgvTable";
+            this.DtgvTable.ReadOnly = true;
             this.DtgvTable.RowHeadersWidth = 51;
             this.DtgvTable.RowTemplate.Height = 24;
             this.DtgvTable.Size = new System.Drawing.Size(415, 332);
@@ -755,6 +767,7 @@
             this.BtnEditTable.TabIndex = 2;
             this.BtnEditTable.Text = "Sửa";
             this.BtnEditTable.UseVisualStyleBackColor = true;
+            this.BtnEditTable.Click += new System.EventHandler(this.BtnEditTable_Click);
             // 
             // BtnDeleteTable
             // 
@@ -764,6 +777,7 @@
             this.BtnDeleteTable.TabIndex = 1;
             this.BtnDeleteTable.Text = "Xóa";
             this.BtnDeleteTable.UseVisualStyleBackColor = true;
+            this.BtnDeleteTable.Click += new System.EventHandler(this.BtnDeleteTable_Click);
             // 
             // BtnAddTable
             // 
@@ -773,6 +787,7 @@
             this.BtnAddTable.TabIndex = 0;
             this.BtnAddTable.Text = "Thêm";
             this.BtnAddTable.UseVisualStyleBackColor = true;
+            this.BtnAddTable.Click += new System.EventHandler(this.BtnAddTable_Click);
             // 
             // TpAccount
             // 
@@ -782,7 +797,7 @@
             this.TpAccount.Location = new System.Drawing.Point(4, 25);
             this.TpAccount.Name = "TpAccount";
             this.TpAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.TpAccount.Size = new System.Drawing.Size(777, 408);
+            this.TpAccount.Size = new System.Drawing.Size(784, 408);
             this.TpAccount.TabIndex = 4;
             this.TpAccount.Text = "Tài khoản";
             this.TpAccount.UseVisualStyleBackColor = true;
@@ -816,6 +831,18 @@
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(339, 44);
             this.panel25.TabIndex = 4;
+            // 
+            // ChooseTypeAccount
+            // 
+            this.ChooseTypeAccount.Location = new System.Drawing.Point(160, 11);
+            this.ChooseTypeAccount.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ChooseTypeAccount.Name = "ChooseTypeAccount";
+            this.ChooseTypeAccount.Size = new System.Drawing.Size(60, 22);
+            this.ChooseTypeAccount.TabIndex = 1;
             // 
             // LbTypeAccount
             // 
@@ -948,24 +975,13 @@
             this.BtnAddAccount.UseVisualStyleBackColor = true;
             this.BtnAddAccount.Click += new System.EventHandler(this.BtnAddAccount_Click);
             // 
-            // ChooseTypeAccount
-            // 
-            this.ChooseTypeAccount.Location = new System.Drawing.Point(160, 11);
-            this.ChooseTypeAccount.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ChooseTypeAccount.Name = "ChooseTypeAccount";
-            this.ChooseTypeAccount.Size = new System.Drawing.Size(60, 22);
-            this.ChooseTypeAccount.TabIndex = 1;
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(805, 450);
             this.Controls.Add(this.TcAdmin);
+            this.MaximizeBox = false;
             this.Name = "Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
@@ -1014,6 +1030,7 @@
             this.panel2.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChooseTypeAccount)).EndInit();
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             this.panel27.ResumeLayout(false);
@@ -1021,7 +1038,6 @@
             this.panel28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgvAccount)).EndInit();
             this.panel29.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ChooseTypeAccount)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -33,6 +33,15 @@ namespace quan_ly_quan_cafe.DAO
             DataProvider.Instance.ExecuteQuery("USP_SwitchTabel @idTable1 , @idTabel2", new object[] { id1, id2 });
         }
 
+        // Chuyen trang thai ban
+        public bool chageStatusTable(int id)
+        {
+            string query = string.Format("UPDATE dbo.TableFood SET status = N'Trống' WHERE id = {0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
         public List<Table> LoadTableList()
         {
             List<Table> tableList = new List<Table>();
@@ -46,6 +55,30 @@ namespace quan_ly_quan_cafe.DAO
                 tableList.Add(table);
             }
             return tableList;
+        }
+
+        public bool InsertTable(string name)
+        {
+            string query = string.Format("INSERT INTO dbo.TableFood ( name )VALUES  ( N'{0}')", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool DeleteTable(int id)
+        {
+            string query = string.Format("DELETE dbo.TableFood WHERE id = {0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool UpdateTable(int id, string name)
+        {
+            string query = string.Format("UPDATE dbo.TableFood SET name = N'{0}' WHERE id = {1}", name, id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
         }
     }
 }

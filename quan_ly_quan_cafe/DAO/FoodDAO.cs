@@ -93,6 +93,15 @@ namespace quan_ly_quan_cafe.DAO
 
             return result > 0;
         }
+
+        public bool DeleteFoodByCategoryId(int idCategory)
+        {
+            string query = string.Format("DELETE dbo.Food WHERE idCategory = {0}", idCategory);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
     }
 }
 

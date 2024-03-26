@@ -2,14 +2,8 @@
 using quan_ly_quan_cafe.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Security.Authentication;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace quan_ly_quan_cafe
@@ -43,7 +37,7 @@ namespace quan_ly_quan_cafe
             CbCategory.DataSource = listCategory;
             CbCategory.DisplayMember = "Name";
         }
-        // hthi food
+        // Hiển thị food
         void LoadFoodListByCategoryID(int id)
         {
             List<Food> listFood = FoodDAO.Instance.GetFoodByCategoryID(id);
@@ -87,6 +81,7 @@ namespace quan_ly_quan_cafe
         void ShowBill(int id)
         {
             LsBill.Items.Clear();
+
             List<quan_ly_quan_cafe.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
             float totalPrice = 0;
             foreach (quan_ly_quan_cafe.DTO.Menu item in listBillInfo)
@@ -147,22 +142,25 @@ namespace quan_ly_quan_cafe
         void f_UpdateFood(object sender, EventArgs e)
         {
             LoadFoodListByCategoryID((CbCategory.SelectedItem as Category).ID);
-            if (LsBill.Tag != null)
+            if (LsBill.Tag != null && LsBill.Tag.ToString() != "")
                 ShowBill((LsBill.Tag as Table).ID);
         }
 
         void f_DeleteFood(object sender, EventArgs e)
         {
             LoadFoodListByCategoryID((CbCategory.SelectedItem as Category).ID);
-            if (LsBill.Tag != null)
+            if (LsBill.Tag != null && LsBill.Tag.ToString() != "")
+            {
                 ShowBill((LsBill.Tag as Table).ID);
+                TableDAO.Instance.chageStatusTable((LsBill.Tag as Table).ID);
+            }
             LoadTable();
         }
 
         void f_InsertFood(object sender, EventArgs e)
         {
-            LoadFoodListByCategoryID((CbCategory.SelectedItem as Category).ID);
-            if (LsBill.Tag != null)
+            LoadFoodListByCategoryID((int)sender);
+            if (LsBill.Tag != null && LsBill.Tag.ToString() != "")
                 ShowBill((LsBill.Tag as Table).ID);
         }
 
@@ -249,6 +247,7 @@ namespace quan_ly_quan_cafe
 
             LoadTable();
         }
+
     }
     #endregion
 }
